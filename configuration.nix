@@ -78,6 +78,7 @@
     packages = with pkgs; [
       vscode
       github-desktop
+      lazygit
       google-chrome
       pavucontrol
       pamixer
@@ -90,6 +91,9 @@
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "milianor";
+
+  # Enable secret
+  services.passSecretService.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
