@@ -96,6 +96,7 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
+    GTK_THEME = "WhiteSur-Dark";
   };
 
   home.pointerCursor = {

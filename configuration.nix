@@ -95,6 +95,9 @@
   # Enable secret
   services.passSecretService.enable = true;
 
+  # Enable gvfs for nautilus
+  services.gvfs.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
