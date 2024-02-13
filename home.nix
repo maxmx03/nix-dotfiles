@@ -93,14 +93,15 @@
   #  /etc/profiles/per-user/milianor/etc/profile.d/hm-session-vars.sh
   #
   # home.sessionVariables = {};
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "WhiteSur Cursors";
+    package = pkgs.whitesur-cursors;
+    size = 24;
+  };
 
   gtk = {
     enable = true;
-    cursorTheme = {
-      name = "WhiteSur Cursors";
-      package = pkgs.whitesur-cursors;
-      size = 24;
-    };
     theme = {
       package = pkgs.whitesur-gtk-theme;
       name = "WhiteSur-Dark";
