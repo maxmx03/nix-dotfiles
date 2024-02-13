@@ -92,12 +92,7 @@
   #
   #  /etc/profiles/per-user/milianor/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    GTK_THEME = "WhiteSur-Dark";
-  };
+  # home.sessionVariables = {};
 
   home.pointerCursor = {
     gtk.enable = true;

@@ -15,7 +15,6 @@ if [ -z "$TMUX" ] && [ "$TERM" = "foot" ]; then
     export TERM="xterm-256color"
 fi
 
-export PATH="$PATH:$HOME/.cargo/bin"
 export FZF_DEFAULT_COMMAND='fd --type f -H -E .git -E .vscode --strip-cwd-prefix'
 export FZF_DEFAULT_OPTS="
   --color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
@@ -23,8 +22,7 @@ export FZF_DEFAULT_OPTS="
   --color=border:#403d52,header:#31748f,gutter:#191724
   --color=spinner:#f6c177,info:#9ccfd8
   --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+
+export PATH="$PATH:$HOME/.cargo/bin"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-
