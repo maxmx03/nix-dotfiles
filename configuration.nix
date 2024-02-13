@@ -15,6 +15,7 @@
     ./config-nix/tmux.nix
     ./config-nix/audio.nix
     ./config-nix/fonts.nix
+    ./config-nix/hosts.nix
   ];
 
   # Bootloader.
@@ -42,6 +43,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nameservers = ["1.1.1.3" "1.0.0.3"];
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
