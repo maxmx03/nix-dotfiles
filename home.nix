@@ -29,7 +29,6 @@
     neovim
     starship
     git
-    whitesur-cursors
     whitesur-gtk-theme
     whitesur-icon-theme
     rofi-wayland
@@ -93,12 +92,26 @@
   #  /etc/profiles/per-user/milianor/etc/profile.d/hm-session-vars.sh
   #
   # home.sessionVariables = {};
-  home.pointerCursor = {
-    gtk.enable = true;
-    name = "WhiteSur Cursors";
-    package = pkgs.whitesur-cursors;
-    size = 24;
-  };
+
+  home.pointerCursor = let
+    getFrom = url: hash: name: {
+      gtk.enable = true;
+      x11.enable = true;
+      name = name;
+      size = 24;
+      package = pkgs.runCommand "moveUp" {} ''
+        mkdir -p $out/share/icons
+        ln -s ${pkgs.fetchzip {
+          url = url;
+          hash = hash;
+        }} $out/share/icons/${name}
+      '';
+    };
+  in
+    getFrom
+    "https://github.com/ful1e5/apple_cursor/releases/download/v2.0.0/macOS-BigSur.tar.gz"
+    "sha256-VZWFf1AHum2xDJPMZrBmcyVrrmYGKwCdXOPATw7myOA="
+    "macOS-BigSur";
 
   gtk = {
     enable = true;
