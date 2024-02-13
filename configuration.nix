@@ -15,7 +15,7 @@
     ./config-nix/tmux.nix
     ./config-nix/audio.nix
     ./config-nix/fonts.nix
-    ./config-nix/hosts.nix
+    ./config-nix/network.nix
   ];
 
   # Bootloader.
@@ -33,17 +33,6 @@
     };
   };
   time.hardwareClockInLocalTime = true;
-
-  networking.hostName = "milianor"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.nameservers = ["1.1.1.3" "1.0.0.3"];
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -63,11 +52,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "br";
-    xkbVariant = "";
-  };
   security.rtkit.enable = true;
   # Configure console keymap
   console.keyMap = "br-abnt2";
@@ -92,14 +76,19 @@
     ];
   };
 
-  # Enable automatic login for the user.
-  services.getty.autologinUser = "milianor";
-
-  # Enable secret
-  services.passSecretService.enable = true;
-
-  # Enable gvfs for nautilus
-  services.gvfs.enable = true;
+  services = {
+    # Configure keymap in X11
+    xserver = {
+      layout = "br";
+      xkbVariant = "";
+      videoDrivers = ["amdgpu"];
+    };
+    getty.autologinUser = "milianor";
+    # Enable secret
+    passSecretService.enable = true;
+    # Enable gvfs for nautilus
+    gvfs.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -143,15 +132,6 @@
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Enable Amd drivers
-  services.xserver.videoDrivers = ["amdgpu"];
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
