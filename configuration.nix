@@ -80,7 +80,7 @@
       github-desktop
       lazygit
       firefox
-      brave
+      google-chrome
       pavucontrol
       pamixer
       vim

@@ -29,7 +29,7 @@
     neovim
     starship
     git
-    capitaine-cursors
+    whitesur-cursors
     whitesur-gtk-theme
     whitesur-icon-theme
     rofi-wayland
@@ -94,15 +94,13 @@
   #
   # home.sessionVariables = {};
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.capitaine-cursors;
-    name = "Capitaine Cursors";
-    size = 16;
-  };
-
   gtk = {
     enable = true;
+    cursorTheme = {
+      name = "WhiteSur Cursors";
+      package = pkgs.whitesur-cursors;
+      size = 24;
+    };
     theme = {
       package = pkgs.whitesur-gtk-theme;
       name = "WhiteSur-Dark";
