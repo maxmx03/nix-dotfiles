@@ -79,7 +79,8 @@
       vscode
       github-desktop
       lazygit
-      google-chrome
+      firefox
+      brave
       pavucontrol
       pamixer
       vim
