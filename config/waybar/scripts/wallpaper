@@ -12,7 +12,7 @@ function _waybar_change_wallpaper() {
         local total_wallpapers=$(find "${wallpaper_dir}" -maxdepth 1 -type f | wc -l)
 
         if [ "${total_wallpapers}" -gt 1 ]; then
-            change_wallpaper
+            _waybar_change_wallpaper
         fi
     fi
 }
