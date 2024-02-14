@@ -11,11 +11,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./config-nix/hyprland.nix
-    ./config-nix/tmux.nix
-    ./config-nix/audio.nix
-    ./config-nix/fonts.nix
-    ./config-nix/network.nix
+    ./config/hyprland.nix
+    ./config/tmux.nix
+    ./config/network.nix
   ];
 
   # Bootloader.
@@ -64,15 +62,9 @@
     packages = with pkgs; [
       vscode
       github-desktop
-      lazygit
+      obs-studio
       firefox
       google-chrome
-      pavucontrol
-      pamixer
-      vim
-      eza
-      cmus
-      mpv
     ];
   };
 
@@ -96,30 +88,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wl-clipboard
-    cliphist
-    dunst
-    mako
-    jq
-    xdg-utils
-    unzip
-    unrar
-    yarn
-    fd
-    fzf
-    bat
-    ripgrep
-    # lsp-servers
-    lua-language-server
-    vscode-langservers-extracted
-    nodePackages_latest.typescript-language-server
-    typescript
-    nodePackages.pyright
-    nixd
-    # formatters
-    black
-    prettierd
-    alejandra
+    vim
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./home/config-nix/hyprland.nix
+    ./home/config-nix/neovim.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "milianor";
@@ -24,20 +28,17 @@
     # # "Hello, world!" when run.
     foot
     neofetch
+    eza
     rustc
     cargo
-    neovim
     starship
     git
-    whitesur-gtk-theme
-    whitesur-icon-theme
-    rofi-wayland
-    waybar
-    wlogout
-    swww
-    networkmanagerapplet
-    gnome.nautilus
-
+    yarn
+    fd
+    fzf
+    bat
+    python3
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -54,31 +55,25 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
+  home.file = let
+    homeFiles = path: {
+      # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+      # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+      # # symlink to the Nix store copy.
+      # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-    ".config/nvim".source = ./config/nvim;
-    ".config/hypr".source = ./config/hypr;
-    ".config/waybar".source = ./config/waybar;
-    ".config/rofi".source = ./config/rofi;
-    ".config/neofetch".source = ./config/neofetch;
-    ".config/wlogout".source = ./config/wlogout;
-    ".config/kitty".source = ./config/kitty;
-    ".config/foot".source = ./config/foot;
-    ".local/share/fonts".source = ./config/fonts;
-    ".tmux.conf".source = ./config/.tmux.conf;
-    ".wallpapers".source = ./wallpapers;
-    ".bashrc".source = ./config/.bashrc;
-    ".profile".source = ./config/.profile;
-  };
+      # # You can also set the file content immediately.
+      # ".gradle/gradle.properties".text = ''
+      #   org.gradle.console=verbose
+      #   org.gradle.daemon.idletimeout=3600000
+      # '';
+      ".config/neofetch".source = "${path}/neofetch";
+      ".tmux.conf".source = "${path}/.tmux.conf";
+      ".bashrc".source = "${path}/.bashrc";
+    };
+  in
+    homeFiles
+    ./home/config;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
@@ -93,37 +88,8 @@
   #
   # home.sessionVariables = {};
 
-  home.pointerCursor = let
-    getFrom = url: hash: name: {
-      gtk.enable = true;
-      x11.enable = true;
-      name = name;
-      size = 24;
-      package = pkgs.runCommand "moveUp" {} ''
-        mkdir -p $out/share/icons
-        ln -s ${pkgs.fetchzip {
-          url = url;
-          hash = hash;
-        }} $out/share/icons/${name}
-      '';
-    };
-  in
-    getFrom
-    "https://github.com/ful1e5/apple_cursor/releases/download/v2.0.0/macOS-BigSur.tar.gz"
-    "sha256-VZWFf1AHum2xDJPMZrBmcyVrrmYGKwCdXOPATw7myOA="
-    "macOS-BigSur";
-
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.whitesur-gtk-theme;
-      name = "WhiteSur-Dark";
-    };
-
-    iconTheme = {
-      package = pkgs.whitesur-icon-theme;
-      name = "WhiteSur";
-    };
+  nixpkgs.config = {
+    allowUnfree = true;
   };
 
   # Let Home Manager install and manage itself.
