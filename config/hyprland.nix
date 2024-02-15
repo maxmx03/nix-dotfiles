@@ -27,4 +27,8 @@
     noto-fonts-emoji
     liberation_ttf
   ];
+
+  xdg = {
+    enable = true;
+  };
 }
