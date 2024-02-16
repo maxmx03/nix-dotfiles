@@ -73,4 +73,8 @@
       name = "WhiteSur";
     };
   };
+
+  xdg = {
+    enable = true;
+  };
 }
