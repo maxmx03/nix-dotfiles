@@ -90,6 +90,7 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    gnumake
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
