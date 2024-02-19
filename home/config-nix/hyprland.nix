@@ -25,6 +25,8 @@
     pamixer
     cmus
     mpv
+    grim
+    slurp
   ];
 
   home.file = let

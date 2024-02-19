@@ -18,6 +18,7 @@
     nixd
     yaml-language-server
     gopls
+    nodePackages.vim-language-server
     # formatters
     black
     prettierd
