@@ -19,6 +19,7 @@
     yaml-language-server
     gopls
     nodePackages.vim-language-server
+    nodePackages_latest.bash-language-server
     # formatters
     black
     prettierd
@@ -27,7 +28,7 @@
 
   home.file = let
     homeFiles = path: {
-      ".config/nvim".source = "${path}/nvim";
+      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/config/nvim";
       ".local/share/fonts".source = "${path}/fonts";
     };
   in

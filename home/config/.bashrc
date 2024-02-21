@@ -23,6 +23,7 @@ export FZF_DEFAULT_OPTS="
   --color=spinner:#f6c177,info:#9ccfd8
   --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 
+export PATH="$PATH:$HOME/.schemecraft/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
