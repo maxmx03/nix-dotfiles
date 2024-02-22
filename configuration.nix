@@ -65,6 +65,7 @@
       obs-studio
       firefox
       google-chrome
+      discord
     ];
   };
 

@@ -18,8 +18,13 @@
     nixd
     yaml-language-server
     gopls
-    nodePackages.vim-language-server
     nodePackages_latest.bash-language-server
+    emmet-ls
+    nodePackages_latest.vim-language-server
+    marksman
+    docker-compose-language-service
+    nodePackages_latest.intelephense
+    nodePackages."@astrojs/language-server"
     # formatters
     black
     prettierd

@@ -38,7 +38,9 @@
     fzf
     bat
     python3
+    nodejs_21
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    nodePackages."@angular/cli"
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -69,7 +71,7 @@
       # '';
       ".config/neofetch".source = "${path}/neofetch";
       ".tmux.conf".source = "${path}/.tmux.conf";
-      ".bashrc".source = "${path}/.bashrc";
+      ".bashrc".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/config/.bashrc";
     };
   in
     homeFiles

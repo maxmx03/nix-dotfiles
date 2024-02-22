@@ -27,3 +27,7 @@ export PATH="$PATH:$HOME/.schemecraft/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
