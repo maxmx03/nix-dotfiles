@@ -1,3 +1,4 @@
 vim9script
+import $"{$HOME}/vim-plug/plug.vim"
 import $"{$VIMRUNTIME}/defaults.vim"
 import $"{$HOME}/.vim/plugins.vim"
