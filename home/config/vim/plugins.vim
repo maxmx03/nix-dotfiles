@@ -6,13 +6,7 @@ Plug 'rose-pine/vim'
 Plug 'sheerun/vim-polyglot'
 
 # editor
-Plug 'Shougo/defx.nvim'
-if !has('nvim')
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'kristijanhusak/defx-icons'
-Plug 'kristijanhusak/defx-git'
+Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
