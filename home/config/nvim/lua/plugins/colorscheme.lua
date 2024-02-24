@@ -1,51 +1,40 @@
 return {
   {
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    'maxmx03/dracula.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      local color = require 'core.color'
-      local colors = require 'rose-pine.palette'
-      local background = color.shade(colors.base, 2)
-      local transparent = true
+      ---@type dracula
+      local dracula = require 'dracula'
 
-      local hl = function(...)
-        return vim.api.nvim_set_hl(0, ...)
-      end
-
-      if transparent then
-        hl('BufferLineFill', { bg = background })
-        hl('BufferLineSeparator', { fg = background })
-        hl('BufferLineSeparatorSelected', { fg = background })
-        hl('BufferLineSeparatorVisible', { fg = background })
-      end
-
-      require('rose-pine').setup {
-        variant = 'auto',
-        dark_variant = 'main',
-        styles = {
-          bold = true,
-          italic = false,
-          transparency = true,
-        },
-        highlight_groups = {
-          NeoTreeNormal = { bg = 'base' },
-          NeoTreeNormalNC = { bg = 'base' },
-          NormalFloat = { bg = 'base' },
-          Pmenu = { fg = 'text', bg = 'base' },
-          WinSeparator = { bg = 'base' },
-          FloatBorder = { link = 'WinSeparator' },
-          Directory = { fg = 'foam' },
-          StatusLine = { bg = 'base' },
-          StatusLineNC = { bg = 'base' },
-          ['@lsp.type.string'] = { link = '@string' },
-          ['@markup.link.label'] = { link = '@markup.link' },
-          ['@character.printf'] = { link = 'Special' },
+      dracula.setup {
+        transparent = false,
+        plugins = {
+          ['nvim-treesitter'] = true,
+          ['nvim-lspconfig'] = true,
+          ['nvim-navic'] = true,
+          ['nvim-cmp'] = true,
+          ['indent-blankline.nvim'] = true,
+          ['bufferline.nvim'] = true,
+          ['neo-tree.nvim'] = true,
+          ['nvim-tree.lua'] = true,
+          ['which-key.nvim'] = true,
+          ['dashboard-nvim'] = true,
+          ['gitsigns.nvim'] = true,
+          ['neogit'] = true,
+          ['todo-comments.nvim'] = true,
+          ['lazy.nvim'] = true,
+          ['telescope.nvim'] = true,
+          ['noice.nvim'] = true,
+          ['hop.nvim'] = true,
+          ['mini.statusline'] = true,
+          ['mini.tabline'] = true,
+          ['mini.starter'] = true,
+          ['mini.cursorword'] = true,
         },
       }
 
-      vim.cmd.colorscheme 'rose-pine'
+      vim.cmd.colorscheme 'dracula'
     end,
   },
 }

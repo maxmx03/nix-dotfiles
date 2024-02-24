@@ -3,30 +3,14 @@ return {
     'maxmx03/roseline',
     config = function()
       require('roseline').setup {
+        theme = 'dracula',
         icons = {
           vim = '',
-          git = {
-            head = '',
-            added = '',
-            changed = '',
-            removed = '',
-          },
           diagnostic = {
-            Error = '',
-            Warning = '',
-            Information = '',
-            Question = '',
-            Hint = '󰌶',
-            Debug = '',
-            Ok = '󰧱',
+            Ok = '󰟪',
           },
-          default = { left = '', right = '' },
-          block = { left = '█', right = '█' },
-          round = { left = '', right = '' },
           os = {
             Linux = '󱄅',
-            microsoft = '',
-            Darwin = '',
           },
         },
       }

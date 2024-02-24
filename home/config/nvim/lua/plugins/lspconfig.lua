@@ -53,6 +53,7 @@ return {
                     vim.env.VIMRUNTIME,
                     '${3rd}/luv/library',
                     '${3rd}/busted/library',
+                    '~/.local/share/nvim/lazy/dracula.nvim',
                   },
                 },
                 hint = {
