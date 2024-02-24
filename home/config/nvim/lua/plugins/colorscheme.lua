@@ -8,7 +8,7 @@ return {
       local dracula = require 'dracula'
 
       dracula.setup {
-        transparent = false,
+        transparent = true,
         plugins = {
           ['nvim-treesitter'] = true,
           ['nvim-lspconfig'] = true,

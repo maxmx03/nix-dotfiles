@@ -30,18 +30,19 @@
   ];
 
   home.file = let
-    homeFiles = path: {
-      ".config/hypr".source = "${path}/hypr";
-      ".config/waybar".source = "${path}/waybar";
-      ".config/rofi".source = "${path}/rofi";
-      ".config/wlogout".source = "${path}/wlogout";
-      ".config/foot".source = "${path}/foot";
-      ".profile".source = "${path}/.profile";
-      ".wallpapers".source = ../../wallpapers;
+    homeFiles = outOfStore: configPath: {
+      ".config/hypr".source = outOfStore "${configPath}/hypr";
+      ".config/waybar".source = outOfStore "${configPath}/waybar";
+      ".config/rofi".source = outOfStore "${configPath}/rofi";
+      ".config/wlogout".source = outOfStore "${configPath}/wlogout";
+      ".config/foot".source = outOfStore "${configPath}/foot";
+      ".profile".source = outOfStore "${configPath}/.profile";
+      ".wallpapers".source = outOfStore "${config.home.homeDirectory}/dotfiles/wallpapers";
     };
   in
     homeFiles
-    ../config;
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/dotfiles/home/config";
 
   home.pointerCursor = let
     getFrom = url: hash: name: {
