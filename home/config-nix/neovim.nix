@@ -25,6 +25,8 @@
     docker-compose-language-service
     nodePackages_latest.intelephense
     nodePackages."@astrojs/language-server"
+    nodePackages."dockerfile-language-server-nodejs"
+    markdownlint-cli
     # formatters
     black
     prettierd
