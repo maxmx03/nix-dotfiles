@@ -6,32 +6,25 @@ return {
     config = function()
       ---@type dracula
       local dracula = require 'dracula'
+      local transparent = false
 
       dracula.setup {
-        transparent = true,
-        plugins = {
-          ['nvim-treesitter'] = true,
-          ['nvim-lspconfig'] = true,
-          ['nvim-navic'] = true,
-          ['nvim-cmp'] = true,
-          ['indent-blankline.nvim'] = true,
-          ['bufferline.nvim'] = true,
-          ['neo-tree.nvim'] = true,
-          ['nvim-tree.lua'] = true,
-          ['which-key.nvim'] = true,
-          ['dashboard-nvim'] = true,
-          ['gitsigns.nvim'] = true,
-          ['neogit'] = true,
-          ['todo-comments.nvim'] = true,
-          ['lazy.nvim'] = true,
-          ['telescope.nvim'] = true,
-          ['noice.nvim'] = true,
-          ['hop.nvim'] = true,
-          ['mini.statusline'] = true,
-          ['mini.tabline'] = true,
-          ['mini.starter'] = true,
-          ['mini.cursorword'] = true,
-        },
+        transparent = transparent,
+        on_colors = require 'core.dracula',
+        on_highlights = function(colors, color)
+          if transparent then
+            local background = color.shade(colors.base02, 2)
+            return {
+              BufferLineFill = { bg = background },
+              BufferLineBufferSelected = { fg = colors.base0 },
+              BufferLineSeparator = { fg = background },
+              BufferLineSeparatorSelected = { fg = background },
+              BufferLineSeparatorVisible = { fg = background },
+            }
+          else
+            return {}
+          end
+        end,
       }
 
       vim.cmd.colorscheme 'dracula'
