@@ -10,8 +10,11 @@
     # Or disable the firewall altogether.
     # firewall.enable = false;
     hostName = "milianor";
-    networkmanager.enable = true;
-    nameservers = ["1.1.1.3" "1.0.0.3"];
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      appendNameservers = ["1.1.1.3" "1.0.0.3"];
+    };
     extraHosts =
       builtins.readFile
       (pkgs.fetchFromGitHub {
