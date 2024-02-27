@@ -42,7 +42,6 @@
     nodejs_21
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
     nodePackages."@angular/cli"
-    cinnamon.xreader
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
