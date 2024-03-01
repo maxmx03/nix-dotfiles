@@ -66,6 +66,8 @@
       firefox
       google-chrome
       discord
+      qbittorrent
+      insomnia
     ];
   };
 
