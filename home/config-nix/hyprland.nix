@@ -36,7 +36,6 @@
       ".config/rofi".source = outOfStore "${configPath}/rofi";
       ".config/wlogout".source = outOfStore "${configPath}/wlogout";
       ".config/foot".source = outOfStore "${configPath}/foot";
-      ".profile".source = outOfStore "${configPath}/.profile";
       ".wallpapers".source = outOfStore "${config.home.homeDirectory}/dotfiles/wallpapers";
     };
   in
@@ -80,4 +79,13 @@
   xdg = {
     enable = true;
   };
+
+  programs.bash.profileExtra = ''
+    export NIXPKGS_ALLOW_UNFREE=1
+    export GTK_THEME="WhiteSur-Dark"
+    export XDG_SESSION_DESKTOP="Hyprland"
+    export XDG_SESSION_TYPE="wayland"
+    export XDG_CURRENT_DESKTOP="Hyprland"
+    exec Hyprland
+  '';
 }

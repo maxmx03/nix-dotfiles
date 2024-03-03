@@ -2,9 +2,8 @@
 
 function z() {
   local locations=(
-  "$HOME/dotfiles" 
+  "$HOME/dotfiles"
   "$HOME/.config"
-  "$HOME/workspace"
   "$HOME"
   "/"
    )
