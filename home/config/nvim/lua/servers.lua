@@ -16,5 +16,5 @@ return {
   'yamlls',
   'gopls',
   'nixd',
-  'htmx-lsp',
+  'htmx',
 }
