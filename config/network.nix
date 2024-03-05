@@ -15,14 +15,11 @@
       dns = "systemd-resolved";
       appendNameservers = ["1.1.1.3" "1.0.0.3"];
     };
-    extraHosts =
-      builtins.readFile
-      (pkgs.fetchFromGitHub {
-          owner = "StevenBlack";
-          repo = "hosts";
-          rev = "3.14.52";
-          sha256 = "1GnxuC08uOjoxiCiSVKmnetDHmWQGzMn99A5DtAA1Gw=";
-        }
-        + "/alternates/porn/hosts");
+    stevenBlackHosts = {
+      blockFakenews = false;
+      blockGambling = false;
+      blockPorn = true;
+      blockSocial = false;
+    };
   };
 }
