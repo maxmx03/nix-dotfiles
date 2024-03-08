@@ -27,6 +27,7 @@
     mpv
     grim
     slurp
+    gnome.eog
   ];
 
   home.file = let
