@@ -5,14 +5,14 @@ return {
     event = 'VeryLazy',
     version = '2.*',
     config = function()
-      local colors = require 'dracula.palette'
+      local colors = require 'rose-pine.palette'
 
       require('window-picker').setup {
         highlights = {
           statusline = {
             unfocused = {
-              fg = colors.pink,
-              bg = colors.base03,
+              fg = colors.foam,
+              bg = colors.base,
               bold = true,
             },
           },
