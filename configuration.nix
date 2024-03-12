@@ -16,6 +16,9 @@
     ./config/network.nix
   ];
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # Bootloader.
   boot.initrd.kernelModules = ["amdgpu"];
   boot.loader = {
@@ -68,6 +71,7 @@
       discord
       qbittorrent
       insomnia
+      docker
     ];
   };
 

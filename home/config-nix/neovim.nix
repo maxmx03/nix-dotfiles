@@ -26,6 +26,7 @@
     nodePackages_latest.intelephense
     nodePackages."@astrojs/language-server"
     nodePackages."dockerfile-language-server-nodejs"
+    nodePackages."@tailwindcss/language-server"
     markdownlint-cli
     # formatters
     black

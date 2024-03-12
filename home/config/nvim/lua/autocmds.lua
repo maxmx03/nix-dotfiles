@@ -34,11 +34,3 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.b[data.buf].miniindentscope_disable = true
   end,
 })
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.*',
-  callback = function()
-    local format = require 'core.format'
-    format()
-  end,
-})

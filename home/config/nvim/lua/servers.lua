@@ -17,4 +17,5 @@ return {
   'gopls',
   'nixd',
   'htmx',
+  'tailwindcss',
 }
