@@ -42,6 +42,7 @@ return {
           ['@lsp.type.string'] = { link = '@string' },
           ['@markup.link.label'] = { link = '@markup.link' },
           ['@character.printf'] = { link = '@keyword' },
+          CursorLine = { bg = 'NONE' },
         },
       }
 
