@@ -30,6 +30,10 @@ return {
           transparency = true,
         },
         highlight_groups = {
+          Title = { fg = 'rose' },
+          ['@markup.heading'] = { fg = 'rose' },
+          ['@type.builtin'] = { link = '@keyword' },
+          ['@function.builtin'] = { fg = 'love' },
           NeoTreeNormal = { bg = 'base' },
           NeoTreeNormalNC = { bg = 'base' },
           NormalFloat = { bg = 'base' },
